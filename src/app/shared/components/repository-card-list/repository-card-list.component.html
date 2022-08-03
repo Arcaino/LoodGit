@@ -1,3 +1,5 @@
-<div *ngFor="let repository of repositories">
-    <app-repository-card [item]="repository"></app-repository-card>
+<div class="repository-list">
+    <div *ngFor="let repository of repositoriesWithTopic">
+        <app-repository-card [item]="repository"></app-repository-card>
+    </div>
 </div>

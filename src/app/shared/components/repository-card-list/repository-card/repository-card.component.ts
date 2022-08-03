@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { GitHubApiService } from 'src/app/core/services/git-hub-api.service';
-import { Repository } from 'src/app/shared/models/Repository';
+import {ThemePalette} from '@angular/material/core';
+
+export interface ChipColor {
+  name: string;
+  color: ThemePalette;
+}
 
 @Component({
   selector: 'app-repository-card',
@@ -10,6 +14,13 @@ import { Repository } from 'src/app/shared/models/Repository';
 export class RepositoryCardComponent implements OnInit {
 
   @Input() item: any
+
+  availableColors: ChipColor[] = [
+    {name: 'none', color: undefined},
+    {name: 'Primary', color: 'primary'},
+    {name: 'Accent', color: 'accent'},
+    {name: 'Warn', color: 'warn'},
+  ];
 
   constructor() { }
 

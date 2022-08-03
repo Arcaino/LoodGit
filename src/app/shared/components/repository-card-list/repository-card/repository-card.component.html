@@ -1,1 +1,17 @@
-<span>{{item.full_name}}</span>
+<mat-card class="repository-card">
+  <div class="repository-card__content">
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-content>
+      <p>{{ item.description }}</p>
+    </mat-card-content>
+    <mat-card-footer>
+      <div class="topic" *ngFor="let topic of item.topics.names">
+        {{ topic }}
+      </div>
+    </mat-card-footer>
+  </div>
+  <div class="repository-card__user">
+    <img mat-card-avatar class="repository-card__user__avatar" src="{{item.owner.avatar_url}}">
+    <mat-card-subtitle class="repository-card__user__login">{{item.owner.login}}</mat-card-subtitle>
+  </div>
+</mat-card>
