@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoryCardComponent } from './shared/components/repository-card-list/repository-card/repository-card.component';
 import { RepositoryCardListComponent } from './shared/components/repository-card-list/repository-card-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RepositoryCardListComponent } from './shared/components/repository-card
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
