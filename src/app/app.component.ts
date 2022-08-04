@@ -12,6 +12,8 @@ export class AppComponent implements OnInit{
   public searchInput: string = '';
   searchInputUpdate = new Subject<string>();
 
+  constructor(){}
+
   ngOnInit(): void {
     this.searchInputUpdate.pipe(
       debounceTime(1000),
@@ -20,4 +22,9 @@ export class AppComponent implements OnInit{
         console.log(value);
       });
   };
+
+  getRepositoryFromSearch(){
+
+
+  }
 }

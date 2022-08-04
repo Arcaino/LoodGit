@@ -12,6 +12,20 @@ mat-form-field{
     width: 100%;
 }
 
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo{
+
+        color: #FFFFFF;
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}
+
 .mat-form-field-appearance-fill{
     border-radius: 0 !important;
 }
@@ -21,8 +35,8 @@ mat-form-field{
     background-color: #424242;
     border: 0;
     height: 2rem;
+    width: 50%;
     border-radius: 4px;
     padding: .5rem;
-    width: -webkit-fill-available;
     color: #FFFFFF;
 }

@@ -1,8 +1,12 @@
 
-<input class="search-input" 
-        [(ngModel)]="searchInput"
-        type="text"
-        name="searchInput"
-        (ngModelChange)="this.searchInputUpdate.next($event)"
-        placeholder="Search repositories...">
-<app-home></app-home>
+<div class="nav">
+        <span class="nav__logo" routerLink="/home">LoodGit</span>
+        <input class="search-input" 
+                [(ngModel)]="searchInput"
+                type="text"
+                name="searchInput"
+                routerLink="/search"
+                (ngModelChange)="this.searchInputUpdate.next($event)"
+                placeholder="Search repositories...">
+</div>
+<router-outlet></router-outlet>

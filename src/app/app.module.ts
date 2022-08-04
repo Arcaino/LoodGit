@@ -14,13 +14,16 @@ import { RepositoryCardListComponent } from './shared/components/repository-card
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from './pages/search/search.component';
+import { AppRoutingModuleModule } from './app-routing-module.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     RepositoryCardComponent,
     RepositoryCardListComponent,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
