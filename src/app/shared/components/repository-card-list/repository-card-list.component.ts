@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GitHubApiService } from 'src/app/core/services/git-hub-api.service';
 import { IRepositoryTopics } from '../../models/IRepositoryTopics';
 import { Repository } from '../../models/Repository';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-repository-card-list',
@@ -18,6 +19,7 @@ export class RepositoryCardListComponent implements OnInit {
   constructor(private api: GitHubApiService) { }
 
   ngOnInit(): void {
+    AOS.init();
     this.getRepositories();
   };
 

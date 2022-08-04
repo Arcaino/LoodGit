@@ -25,7 +25,6 @@ export class RepositoryCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
   }
 
 }
