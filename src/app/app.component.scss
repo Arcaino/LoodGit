@@ -15,3 +15,13 @@ mat-form-field{
 .mat-form-field-appearance-fill{
     border-radius: 0 !important;
 }
+
+.search-input{
+
+    background-color: #424242;
+    border: 0;
+    height: 2rem;
+    border-radius: 4px;
+    padding: .5rem;
+    width: -webkit-fill-available;
+}
