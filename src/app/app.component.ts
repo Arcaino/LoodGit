@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { GitHubApiService } from './core/services/git-hub-api.service';
+import { IReponsePageable } from './shared/models/IReponsePageable';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,10 @@ import { GitHubApiService } from './core/services/git-hub-api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+
   title = 'LoodGit';
   public searchInput: string = '';
+  responsePageable!:  IReponsePageable;
   searchInputUpdate = new Subject<string>();
 
   constructor(private router: Router, private api: GitHubApiService){}
@@ -35,7 +38,8 @@ export class AppComponent implements OnInit{
 
     this.api.getRepositoryFromSearch(value)
       .subscribe(response => {
-        console.log(response);
+        this.responsePageable = response;
+        console.log(this.responsePageable);
       });
   }
 }
