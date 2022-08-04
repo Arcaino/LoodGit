@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -12,19 +13,18 @@ export class AppComponent implements OnInit{
   public searchInput: string = '';
   searchInputUpdate = new Subject<string>();
 
-  constructor(){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
     this.searchInputUpdate.pipe(
       debounceTime(1000),
       distinctUntilChanged())
       .subscribe(value => {
-        console.log(value);
+        this.router.navigate(['/search'], {queryParams: { q: value }})
       });
   };
 
   getRepositoryFromSearch(){
-
 
   }
 }
