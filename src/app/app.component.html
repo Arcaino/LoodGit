@@ -1,6 +1,8 @@
 
 <div class="nav">
-        <span class="nav__logo" routerLink="/home">LoodGit</span>
+        <span class="nav__logo" 
+                routerLink="/home"
+                (click)="clearInput()">LoodGit</span>
         <input class="search-input" 
                 [(ngModel)]="searchInput"
                 type="text"
