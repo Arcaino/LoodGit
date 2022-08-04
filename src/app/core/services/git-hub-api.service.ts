@@ -30,8 +30,8 @@ export class GitHubApiService {
     return this.http.get<IRepositoryTopics[]>(`${API_BASE}repos/${repository}/topics`, this.options);
   };
 
-  public getRepositoryFromSearch(query: string): Observable<any>{
+  public getRepositoryFromSearch(query: string, page: number): Observable<any>{
 
-    return this.http.get<any>(`${API_BASE}search/repositories?q=${query}`, this.options);
+    return this.http.get<any>(`${API_BASE}search/repositories?q=${query}&per_page=10&page=${page}`, this.options);
   }
 }

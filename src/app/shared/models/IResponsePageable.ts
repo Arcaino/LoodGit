@@ -1,4 +1,4 @@
-export interface IReponsePageable {
+export interface IResponsePageable {
     total_count: number
     incomplete_results: boolean
     items: Item[]
