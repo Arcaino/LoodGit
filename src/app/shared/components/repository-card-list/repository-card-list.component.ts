@@ -16,4 +16,8 @@ export class RepositoryCardListComponent implements OnInit {
     AOS.init();
   };
 
+  goToPage(url: string){
+
+    window.location.href = url;
+  }
 }

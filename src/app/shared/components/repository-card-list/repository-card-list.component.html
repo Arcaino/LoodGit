@@ -1,5 +1,7 @@
 <div class="repository-list">
     <div *ngFor="let repository of repositories" data-aos="fade-up">
-        <app-repository-card [item]="repository"></app-repository-card>
+        <app-repository-card    [item]="repository"
+                                (click)="goToPage(repository.html_url)">
+        </app-repository-card>
     </div>
 </div>
