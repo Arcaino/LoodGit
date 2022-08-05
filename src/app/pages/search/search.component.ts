@@ -24,12 +24,17 @@ export class SearchComponent implements OnInit {
 
   constructor(private api: GitHubApiService, 
               private route: ActivatedRoute,
-              public combineObjects: CombineObjects) { }
+              public combineObjects: CombineObjects,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.name = params['q'];
-      this.getRepositoryFromSearch(this.name)
+      if(this.name){
+        this.getRepositoryFromSearch(this.name);    
+      }else{
+        this.router.navigate(['/home']); 
+      } 
     });
   };
 
