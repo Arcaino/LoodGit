@@ -7,6 +7,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { HttpClientModule } from '@angular/common/http';
 import { RepositoryCardComponent } from './shared/components/repository-card-list/repository-card/repository-card.component';
@@ -34,7 +35,8 @@ import { AppRoutingModuleModule } from './app-routing-module.module';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    AppRoutingModuleModule
+    AppRoutingModuleModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -19,8 +19,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
 
     this.searchInputUpdate.pipe(
-      debounceTime(500),
-      distinctUntilChanged())
+      debounceTime(500))
       .subscribe(value => {
         this.router.navigate(['/search'], {queryParams: { q: value }});
       });

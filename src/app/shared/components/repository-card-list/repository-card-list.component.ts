@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { GitHubApiService } from 'src/app/core/services/git-hub-api.service';
-import { IRepositoryTopics } from '../../models/IRepositoryTopics';
-import { Repository } from '../../models/Repository';
+import { Component, Input, OnInit } from '@angular/core';
 import * as AOS from 'aos';
 
 @Component({
@@ -11,34 +8,12 @@ import * as AOS from 'aos';
 })
 export class RepositoryCardListComponent implements OnInit {
 
-  repositories: Repository[] = [];
-  repositoriesWithTopic: Repository[] = [];
-  repositoryTopic:  IRepositoryTopics[] = [];
-  repositoryWithTopic: any;
+  @Input() repositories: any
 
-  constructor(private api: GitHubApiService) { }
+  constructor() { }
 
   ngOnInit(): void {
     AOS.init();
-    this.getRepositories();
   };
-
-  getRepositories(){
-    this.api.getRepositories().subscribe(response => {
-      this.repositories = response;
-      this.repositories.forEach((repository, index) => {
-        this.getTopicsFromRepository(repository.full_name, index);
-      })
-    });
-  };
-
-  getTopicsFromRepository(repositoryUrl: string, index: number){
-    this.api.getTopicsFromRepository(repositoryUrl).subscribe(response => {
-
-      this.repositoryTopic = response
-      this.repositoryWithTopic = {...this.repositories[index], topics: this.repositoryTopic}
-      this.repositoriesWithTopic.push(this.repositoryWithTopic);
-    })
-  }
 
 }

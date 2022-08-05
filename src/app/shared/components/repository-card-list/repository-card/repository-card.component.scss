@@ -29,11 +29,12 @@ mat-card-footer{
 
     display: flex;
     margin: .5rem 0;
+    flex-wrap: wrap;
 
     .topic{
 
         background-color: #292929;
-        margin: 0 .25rem;
+        margin: .25rem;
         padding: .5rem 1rem;
         border-radius: 4px;
     }

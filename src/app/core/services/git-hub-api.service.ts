@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IRepositoryTopics } from 'src/app/shared/models/IRepositoryTopics';
-import { Repository } from 'src/app/shared/models/Repository';
+import { IRepository } from 'src/app/shared/models/IRepository';
 import { API_BASE } from 'src/environments/environment';
 
 @Injectable({
@@ -20,9 +20,9 @@ export class GitHubApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getRepositories(): Observable<Repository[]>{
+  public getRepositories(): Observable<IRepository[]>{
 
-    return this.http.get<Repository[]>(`${API_BASE}repositories`, this.options);
+    return this.http.get<IRepository[]>(`${API_BASE}repositories`, this.options);
   };
 
   public getTopicsFromRepository(repository: string): Observable<IRepositoryTopics[]>{
@@ -30,8 +30,8 @@ export class GitHubApiService {
     return this.http.get<IRepositoryTopics[]>(`${API_BASE}repos/${repository}/topics`, this.options);
   };
 
-  public getRepositoryFromSearch(query: string, page: number): Observable<any>{
+  public getRepositoryFromSearch(query: string, page: number, results_per_page: number): Observable<any>{
 
-    return this.http.get<any>(`${API_BASE}search/repositories?q=${query}&per_page=10&page=${page}`, this.options);
+    return this.http.get<any>(`${API_BASE}search/repositories?q=${query}&per_page=${results_per_page}&page=${page}`, this.options);
   }
 }
