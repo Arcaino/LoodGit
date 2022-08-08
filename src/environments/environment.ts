@@ -1,10 +1,15 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
+import { HttpHeaders } from '@angular/common/http';
 
 export const environment = {
   production: false
 };
+
+export const API_TOKEN: HttpHeaders = new HttpHeaders({
+  'Authorization': 'Basic QXJjYWlubzpnaHBfZm5ET2V1Rk1BR0VEbGRMQTdqV2E3ZHdhcDZiTlZxMXViZDZI'
+});
 
 /*
  * For easier debugging in development mode, you can import the following file
