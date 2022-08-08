@@ -4,4 +4,8 @@
                                 (click)="goToPage(repository.html_url)">
         </app-repository-card>
     </div>
+
+    <div *ngFor="let number of skeletonCount" data-aos="fade-up">
+        <app-skeleton-repository-card *ngIf="loader"></app-skeleton-repository-card>
+    </div>
 </div>

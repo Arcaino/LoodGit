@@ -1,0 +1,44 @@
+<div class="skeleton">
+    <div class="skeleton__info">
+      <div class="skeleton__info__repository">
+        <ngx-skeleton-loader 
+              count="1" 
+              appearance="line" 
+              animation="pulse"
+              [theme]="{
+                'background-color': '#525252',
+                margin: '5px'
+              }">
+        </ngx-skeleton-loader>
+      </div>
+      <div class="skeleton__info__description">
+        <ngx-skeleton-loader 
+              count="2" 
+              appearance="line" 
+              animation="pulse"
+              [theme]="{
+                'background-color': '#525252',
+                 margin: '2px'
+              }">
+        </ngx-skeleton-loader>
+      </div>
+    </div>
+    <div class="skeleton__user">
+      <ngx-skeleton-loader 
+              count="1" 
+              appearance="circle"
+              animation="pulse"
+              [theme]="{
+                'background-color': '#525252'
+              }">
+      </ngx-skeleton-loader>
+      <ngx-skeleton-loader class="skeleton__user__text" 
+              count="1" 
+              appearance="line" 
+              animation="pulse"
+              [theme]="{
+                'background-color': '#525252'
+              }">
+      </ngx-skeleton-loader>
+    </div>
+</div>

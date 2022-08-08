@@ -8,11 +8,14 @@ import * as AOS from 'aos';
 })
 export class RepositoryCardListComponent implements OnInit {
 
-  @Input() repositories: any
+  @Input() repositories: any;
+  @Input() loader: any;
+  skeletonCount: Number[] = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    this.skeletonCount = Array(10).map((x)=>x);
     AOS.init();
   };
 

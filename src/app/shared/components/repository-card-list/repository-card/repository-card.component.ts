@@ -13,16 +13,9 @@ export interface ChipColor {
 })
 export class RepositoryCardComponent implements OnInit {
 
-  @Input() item: any
+  @Input() item: any;
 
-  availableColors: ChipColor[] = [
-    {name: 'none', color: undefined},
-    {name: 'Primary', color: 'primary'},
-    {name: 'Accent', color: 'accent'},
-    {name: 'Warn', color: 'warn'},
-  ];
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
   }
