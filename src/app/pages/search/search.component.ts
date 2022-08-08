@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
   page: number = 1;
   results_per_page: number = 10;
   totalPages: number = 1;
-  resultsText: string = 'Searching results...';
+  resultsText: string = 'Searching repositories...';
   total_results: number = 0;
   loader = true;
   routeSubscription!: Subscription;
@@ -64,7 +64,7 @@ export class SearchComponent implements OnInit {
   getPagesInfo(totalResults: number){
 
     this.total_results = totalResults;
-    this.resultsText = totalResults + ' results found';
+    this.resultsText = totalResults + ' repositories found';
     this.totalPages = totalResults / this.results_per_page;
   };
 
