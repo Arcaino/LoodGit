@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { GitHubApiService } from 'src/app/core/services/git-hub-api.service';
-import { IResponsePageable } from 'src/app/shared/models/IResponsePageable';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { IRepository } from 'src/app/shared/models/IRepository';
 import { CombineObjects } from 'src/app/core/helpers/CombineObjects';
 import { PageEvent } from '@angular/material/paginator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'search',
@@ -20,7 +20,11 @@ export class SearchComponent implements OnInit {
   page: number = 1;
   results_per_page: number = 10;
   totalPages: number = 1;
+  resultsText: string = 'Searching results...';
   total_results: number = 0;
+  loader = true;
+  routeSubscription!: Subscription;
+  apiSubscription!: Subscription;
 
   constructor(private api: GitHubApiService, 
               private route: ActivatedRoute,
@@ -28,7 +32,8 @@ export class SearchComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
+
+    this.routeSubscription = this.route.queryParams.subscribe(params => {
       this.name = params['q'];
       if(this.name){
         this.getRepositoryFromSearch(this.name);    
@@ -40,12 +45,13 @@ export class SearchComponent implements OnInit {
 
   getRepositoryFromSearch(value: string){
 
-    this.api.getRepositoryFromSearch(value, this.page, this.results_per_page)
-      .subscribe(response => {
-        this.combineObjects.buildRepositoryWithTopic(response.items);
-        this.repositories = this.combineObjects.repositoriesWithTopic;
-        this.getPagesInfo(response.total_count);  
-      });      
+    const apiGetRepositoryFromSearch$ = this.api.getRepositoryFromSearch(value, this.page, this.results_per_page);
+    this.apiSubscription = apiGetRepositoryFromSearch$.subscribe(response => {
+      this.combineObjects.buildRepositoryWithTopic(response.items);
+      this.repositories = this.combineObjects.repositoriesWithTopic;
+      this.getPagesInfo(response.total_count);  
+      this.loader = false;
+    }) 
   };
 
   OnPageChange(event: PageEvent){
@@ -58,6 +64,12 @@ export class SearchComponent implements OnInit {
   getPagesInfo(totalResults: number){
 
     this.total_results = totalResults;
+    this.resultsText = totalResults + ' results found';
     this.totalPages = totalResults / this.results_per_page;
   };
+
+  ngOnDestroy() {
+    this.routeSubscription.unsubscribe();
+    this.apiSubscription.unsubscribe();
+  }
 }

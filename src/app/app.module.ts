@@ -17,6 +17,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { SearchComponent } from './pages/search/search.component';
 import { AppRoutingModuleModule } from './app-routing-module.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { SkeletonRepositoryCardComponent } from './shared/components/repository-card-list/skeleton-repository-card/skeleton-repository-card.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { AppRoutingModuleModule } from './app-routing-module.module';
     RepositoryCardComponent,
     RepositoryCardListComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    SkeletonRepositoryCardComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,9 @@ import { AppRoutingModuleModule } from './app-routing-module.module';
     MatIconModule,
     FormsModule,
     AppRoutingModuleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxSkeletonLoaderModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
