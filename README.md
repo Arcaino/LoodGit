@@ -4,7 +4,7 @@
 
 **About**
 
-SPA Web application with Angular that lists github repositories, allowing paginated searches.
+SPA Web application with Angular that lists github repositories, allowing paginated searches. This project was made for the purpose of studying Angular and REST API.
 
 **How to start the project**
 
